@@ -14,7 +14,6 @@
       "semi": true
     },
     "devDependencies": {
-      "apply": "^0.2.16",
-      "fs-extra": "^10.0.0"
+      "apply": "^0.2.16"
     }
   }
