@@ -121,10 +121,9 @@ ansi-styles@^4.0.0:
   dependencies:
     color-convert "^2.0.1"
 
-apply@^0.2.16:
+apply@dammyammy/cli:
   version "0.2.16"
-  resolved "https://registry.yarnpkg.com/apply/-/apply-0.2.16.tgz#1dd56ce64427b1eb28c1721c0ab270f7560b8b30"
-  integrity sha512-n/FU3w8H0n0RpMX+JvyNc+7BcfdDkkgZtxtUhmxQVAjznjewXR1AsgBOIda1ghtAQM769AbH+WDa0FHargsCNg==
+  resolved "https://codeload.github.com/dammyammy/cli/tar.gz/016742ce22e29d55f153b097735e01421609b63c"
   dependencies:
     "@poppinss/cliui" "^2.2.2"
     "@poppinss/prompts" "^1.2.1"
