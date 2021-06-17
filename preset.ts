@@ -79,7 +79,7 @@ Preset.group(preset => {
 
 Preset.editPhpPackages()
 	.add('innocenzi/laravel-vite', '^0.1.1')
-	.add('spatie/laravel-medialibrary', '^9.6.5')
+	.add('spatie/laravel-medialibrary', '^9.6.2')
 	.add("guzzlehttp/guzzle", "^7.0.1")
 	.add("inertiajs/inertia-laravel", "^0.3.5")
 	.add("laravel/jetstream", "^2.3")
