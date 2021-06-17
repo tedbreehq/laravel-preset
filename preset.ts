@@ -44,7 +44,7 @@ Preset.group(preset => {
 // Vue
 Preset.group((preset) => {
 	preset.delete(['resources/views/welcome.blade.php'])
-	preset.extract('default')
+	// preset.extract('default')
 	
 	preset.edit('routes/web.php')
 		.update((content) => content.replace('welcome', 'app'))
