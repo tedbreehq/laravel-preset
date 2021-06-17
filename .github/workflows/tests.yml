@@ -47,7 +47,3 @@ jobs:
         run: |
           cd ../app
           npm run build
-      - name: Execute tests
-        run: |
-          cd ../app
-          vendor/bin/phpunit --verbose
