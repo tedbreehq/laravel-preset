@@ -1,7 +1,7 @@
 import { Preset, color } from 'apply';
 
 Preset.setName('laravel-preset');
-Preset.option('install', true);
+// Preset.option('install', true);
 // Preset.option('vue', true);
 
 Preset.extract('default');
@@ -10,8 +10,11 @@ Preset.delete(['/resources/js', '/webpack.mix.js'])
 	.withoutTitle()
 
 Preset.edit('.gitignore')
-	.withTitle(`Updating ${color.magenta('.gitignore')}...`)
-	.addBefore('/public/hot', ['/public/build', '/public/mix-manifest.json'])
+	.withTitle(`Updating Gitignore...`)
+	.addBefore('/public/hot', '/public/build') 
+
+Preset.edit('.gitignore')
+	.addAfter('/public/hot', '/public/mix-manifest.json')
 
 // Preset.edit('resources/views/welcome.blade.php')
 // 	.ifNotOption('vue')
