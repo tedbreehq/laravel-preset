@@ -5,18 +5,24 @@ Preset.setName('laravel-preset');
 
 Preset.extract('default');
 
-Preset.delete(['/resources/js']).withoutTitle();
+// Deleting Files
+Preset.group(preset => {
+	preset.delete(['/resources/js']);
 
-Preset.delete(['/webpack.mix.js']).withoutTitle();
+	preset.delete(['/webpack.mix.js']);
 
-Preset.delete(['resources/views/welcome.blade.php']).withoutTitle();
+	preset.delete(['resources/views/welcome.blade.php']);
+}).withTitle('Deleting Unneeded Files');
 
-Preset.edit('.gitignore')
-	.withTitle(`Updating Gitignore...`)
-	.addBefore('/public/hot', '/public/build'); 
+// Updating Gitignore File
+Preset.group(preset => {
+	preset.edit('.gitignore')
+		.withTitle(`Updating Gitignore...`)
+		.addBefore('/public/hot', '/public/build'); 
 
-Preset.edit('.gitignore')
-	.addAfter('/public/hot', '/public/mix-manifest.json');
+	preset.edit('.gitignore')
+		.addAfter('/public/hot', '/public/mix-manifest.json');
+}).withTitle('Updating Gitignore File');
 
 // Common packages
 Preset.group(preset => {
