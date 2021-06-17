@@ -5,11 +5,11 @@ Preset.setName('laravel-preset');
 
 Preset.extract('default');
 
-Preset.delete('/resources/js').withoutTitle();
+Preset.delete(['/resources/js']).withoutTitle();
 
-Preset.delete('/webpack.mix.js').withoutTitle();
+Preset.delete(['/webpack.mix.js']).withoutTitle();
 
-Preset.delete('resources/views/welcome.blade.php').withoutTitle();
+Preset.delete(['resources/views/welcome.blade.php']).withoutTitle();
 
 Preset.edit('.gitignore')
 	.withTitle(`Updating Gitignore...`)
