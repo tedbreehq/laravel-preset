@@ -1,0 +1,19 @@
+{
+    "name": "@tedbreehq/laravel-preset",
+    "version": "0.1",
+    "author": "Damilola Ogunmoye",
+    "license": "MIT",
+    "preset": "preset.ts",
+    "prettier": {
+      "printWidth": 80,
+      "tabWidth": 2,
+      "trailingComma": "all",
+      "singleQuote": true,
+      "arrowParens": "always",
+      "useTabs": false,
+      "semi": true
+    },
+    "devDependencies": {
+      "apply": "^0.0.2"
+    }
+  }
