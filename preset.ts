@@ -9,12 +9,12 @@ Preset.extract('default');
 Preset.delete(['/resources/js', '/webpack.mix.js'])
 	.withoutTitle()
 
-Preset.edit('.gitignore')
-	.withTitle(`Updating Gitignore...`)
-	.addBefore('/public/hot', '/public/build') 
+// Preset.edit('.gitignore')
+// 	.withTitle(`Updating Gitignore...`)
+// 	.addBefore('/public/hot', '/public/build') 
 
-Preset.edit('.gitignore')
-	.addAfter('/public/hot', '/public/mix-manifest.json')
+// Preset.edit('.gitignore')
+// 	.addAfter('/public/hot', '/public/mix-manifest.json')
 
 // Preset.edit('resources/views/welcome.blade.php')
 // 	.ifNotOption('vue')
