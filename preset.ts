@@ -6,8 +6,8 @@ Preset.option('vue', true);
 
 Preset.extract('default');
 
-Preset.delete(['resources/js', 'webpack.mix.js'])
-	.withoutTitle()
+// Preset.delete(['/resources/js', '/webpack.mix.js'])
+// 	.withoutTitle()
 
 Preset.edit('.gitignore')
 	.withTitle(`Updating ${color.magenta('.gitignore')}...`)

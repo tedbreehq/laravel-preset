@@ -3,7 +3,7 @@
     "version": "0.1",
     "author": "Damilola Ogunmoye",
     "license": "MIT",
-    "preset": "preset.js",
+    "preset": "preset.ts",
     "prettier": {
       "printWidth": 80,
       "tabWidth": 2,
