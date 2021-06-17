@@ -5,14 +5,14 @@ Preset.setName('laravel-preset');
 
 Preset.extract('default');
 
-// Deleting Files
-Preset.group(preset => {
-	preset.delete(['/resources/js']);
+// // Deleting Files
+// Preset.group(preset => {
+// 	preset.delete(['/resources/js']);
 
-	preset.delete(['/webpack.mix.js']);
+// 	preset.delete(['/webpack.mix.js']);
 
-	preset.delete(['resources/views/welcome.blade.php']);
-}).withTitle('Deleting Unneeded Files');
+// 	preset.delete(['resources/views/welcome.blade.php']);
+// }).withTitle('Deleting Unneeded Files');
 
 // Updating Gitignore File
 Preset.group(preset => {
