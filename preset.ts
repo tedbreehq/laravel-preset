@@ -2,30 +2,30 @@ import { Preset, color } from 'apply';
 
 Preset.setName('laravel-preset');
 Preset.option('install', true);
-Preset.option('vue', true);
+// Preset.option('vue', true);
 
 Preset.extract('default');
 
-// Preset.delete(['/resources/js', '/webpack.mix.js'])
-// 	.withoutTitle()
+Preset.delete(['/resources/js', '/webpack.mix.js'])
+	.withoutTitle()
 
 Preset.edit('.gitignore')
 	.withTitle(`Updating ${color.magenta('.gitignore')}...`)
 	.addBefore('/public/hot', ['/public/build', '/public/mix-manifest.json'])
 
-Preset.edit('resources/views/welcome.blade.php')
-	.ifNotOption('vue')
-	.withoutTitle()
-	.addAfter('<title>', [
-		'@vite'
-	]);
+// Preset.edit('resources/views/welcome.blade.php')
+// 	.ifNotOption('vue')
+// 	.withoutTitle()
+// 	.addAfter('<title>', [
+// 		'@vite'
+// 	]);
 
 // Common packages
 Preset.group(preset => {
 	preset.editNodePackages()
 		.remove('laravel-mix')
-		.add("axios", "^0.21")
-		.add("lodash-es", "^4.17.19")
+		.remove("lodash")
+		.addDev("lodash-es", "^4.17.19")
 		.addDev('vite', '^2.0.1')
 		.addDev('laravel-vite', '^0.0.7')
 		.delete(() => ['development', 'watch', 'watch-poll', 'hot', 'prod', 'production'].map(command => `scripts.${command}`))
@@ -44,7 +44,7 @@ Preset.group(preset => {
 // Vue
 Preset.group((preset) => {
 	preset.delete(['resources/views/welcome.blade.php'])
-	preset.extract('vue')
+	preset.extract('default')
 	
 	preset.edit('routes/web.php')
 		.update((content) => content.replace('welcome', 'app'))
@@ -54,15 +54,7 @@ Preset.group((preset) => {
 		.addDev('@vue/compiler-sfc', '^3.0.5')
 		.addDev('@vitejs/plugin-vue', '^1.1.4')
 
-}).ifOption('vue').withTitle('Installing Vue...')
-
-// Inertia
-Preset.group(preset => {
-	preset.editNodePackages()
-		.add("@inertiajs/inertia", "^0.8.4")
-		.add("@inertiajs/inertia-vue3", "^0.3.5")
-		.add("@inertiajs/progress", "^0.2.4")
-}).ifOption('vue').withTitle('Installing Inertia JS...')
+}).withTitle('Installing Vue...')
 
 // Tailwind CSS
 Preset.group(preset => {
@@ -74,9 +66,17 @@ Preset.group(preset => {
 		.addDev("tailwindcss", "^2.0.1")
 		.addDev("@tailwindcss/forms", "^0.2.1")
 		.addDev("@tailwindcss/typography", "^0.3.0")
-}).ifOption('vue').withTitle('Installing Tailwind...')
+}).withTitle('Installing Tailwind...')
 
+// Inertia
+Preset.group(preset => {
+	preset.editNodePackages()
+		.addDev("@inertiajs/inertia", "^0.8.4")
+		.addDev("@inertiajs/inertia-vue3", "^0.3.5")
+		.addDev("@inertiajs/progress", "^0.2.4")
+}).withTitle('Installing Inertia JS...')
 
+// PHP Packages
 Preset.editPhpPackages()
 	.add('innocenzi/laravel-vite', '^0.1.1')
 	.add('spatie/laravel-medialibrary', '^9.6.2')
