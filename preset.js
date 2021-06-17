@@ -9,7 +9,7 @@ Preset.delete('/resources/js').withoutTitle();
 
 Preset.delete('/webpack.mix.js').withoutTitle();
 
-preset.delete('resources/views/welcome.blade.php').withoutTitle();
+Preset.delete('resources/views/welcome.blade.php').withoutTitle();
 
 Preset.edit('.gitignore')
 	.withTitle(`Updating Gitignore...`)
