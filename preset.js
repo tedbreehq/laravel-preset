@@ -2,26 +2,21 @@ import { Preset, color } from 'apply';
 
 Preset.setName('laravel-preset');
 // Preset.option('install', true);
-// Preset.option('vue', true);
 
 Preset.extract('default');
 
-// Preset.delete(['/resources/js']) //, '/webpack.mix.js'
-// 	.withoutTitle()
+Preset.delete('/resources/js').withoutTitle();
+
+Preset.delete('/webpack.mix.js').withoutTitle();
+
+preset.delete('resources/views/welcome.blade.php').withoutTitle();
 
 Preset.edit('.gitignore')
 	.withTitle(`Updating Gitignore...`)
-	.addBefore('/public/hot', '/public/build') 
+	.addBefore('/public/hot', '/public/build'); 
 
 Preset.edit('.gitignore')
-	.addAfter('/public/hot', '/public/mix-manifest.json')
-
-// Preset.edit('resources/views/welcome.blade.php')
-// 	.ifNotOption('vue')
-// 	.withoutTitle()
-// 	.addAfter('<title>', [
-// 		'@vite'
-// 	]);
+	.addAfter('/public/hot', '/public/mix-manifest.json');
 
 // Common packages
 Preset.group(preset => {
@@ -46,18 +41,15 @@ Preset.group(preset => {
 
 // Vue
 Preset.group((preset) => {
-	// preset.delete(['resources/views/welcome.blade.php'])
-	// preset.extract('default')
-	
 	preset.edit('routes/web.php')
-		.update((content) => content.replace('welcome', 'app'))
+		.update((content) => content.replace('welcome', 'app'));
 		
 	preset.editNodePackages()
 		.add('vue', '^3.0.5')
 		.addDev('@vue/compiler-sfc', '^3.0.5')
-		.addDev('@vitejs/plugin-vue', '^1.1.4')
+		.addDev('@vitejs/plugin-vue', '^1.1.4');
 
-}).withTitle('Installing Vue...')
+}).withTitle('Installing Vue...');
 
 // Tailwind CSS
 Preset.group(preset => {
@@ -68,16 +60,16 @@ Preset.group(preset => {
 		.addDev("postcss-import", "^12.0.1")
 		.addDev("tailwindcss", "^2.0.1")
 		.addDev("@tailwindcss/forms", "^0.2.1")
-		.addDev("@tailwindcss/typography", "^0.3.0")
-}).withTitle('Installing Tailwind...')
+		.addDev("@tailwindcss/typography", "^0.3.0");
+}).withTitle('Installing Tailwind...');
 
 // Inertia
 Preset.group(preset => {
 	preset.editNodePackages()
 		.addDev("@inertiajs/inertia", "^0.8.4")
 		.addDev("@inertiajs/inertia-vue3", "^0.3.5")
-		.addDev("@inertiajs/progress", "^0.2.4")
-}).withTitle('Installing Inertia JS...')
+		.addDev("@inertiajs/progress", "^0.2.4");
+}).withTitle('Installing Inertia JS...');
 
 // PHP Packages
 Preset.editPhpPackages()
@@ -104,4 +96,4 @@ Preset.installDependencies('node')
 Preset.instruct([
 	`Run the development server with ${color.magenta('yarn dev')}`,
 	`Edit your scripts in ${color.magenta('resources/scripts')}`,
-]).withHeading("What's next?")
+]).withHeading("What's next?");
