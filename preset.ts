@@ -6,7 +6,7 @@ Preset.setName('laravel-preset');
 
 Preset.extract('default');
 
-Preset.delete(['/resources/js', '/webpack.mix.js'])
+Preset.delete(['/resources/js']) //, '/webpack.mix.js'
 	.withoutTitle()
 
 // Preset.edit('.gitignore')
