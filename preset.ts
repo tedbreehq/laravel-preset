@@ -1,12 +1,14 @@
 import { Preset, color } from 'apply';
 
 Preset.setName('laravel-preset');
-// Preset.option('install', true);
+Preset.option('install', true);
+Preset.option('delete', false);
 
 Preset.extract('default');
 
 // Deleting Files
 Preset.delete(['/resources/js', 'resources/views/welcome.blade.php', 'webpack.mix.js'])
+	.ifOption('delete')
 	.withTitle('Deleting Unneeded Files');
 
 // Updating Gitignore File
