@@ -14,6 +14,6 @@
       "semi": true
     },
     "devDependencies": {
-      "apply": "dammyammy/cli"
+      "apply": "^0.2.17"
     }
   }
