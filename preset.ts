@@ -1,7 +1,7 @@
 import { Preset, color } from 'apply';
 
 Preset.setName('laravel-preset');
-Preset.option('install', true);
+Preset.option('install', false);
 Preset.option('delete', false);
 
 Preset.extract('default');
