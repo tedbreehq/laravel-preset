@@ -8,6 +8,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Home', ['app' => "welcome" ]);
+        return Inertia::render('Home', ['welcomeMessage' => "welcome to My App" ]);
     }
 }
