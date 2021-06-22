@@ -8,25 +8,20 @@
 | -> https://vitejs.dev
 | -> https://github.com/innocenzi/laravel-vite
 */
-
-// Import modules...
+import 'vite/dynamic-import-polyfill';
 import { createApp, h } from 'vue';
-
-import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
+import { createInertiaApp } from '@inertiajs/inertia-vue3';
 
-const el = document.getElementById('app');
-
-createApp({
-    render: () =>
-        h(InertiaApp, {
-            initialPage: JSON.parse(el.dataset.page),
-            resolveComponent: (name) => require(`./Pages/${name}`).default,
-        }),
-})
-    // .mixin({ methods: { route } })
-    .use(InertiaPlugin)
-    .mount(el);
+createInertiaApp({
+    id: 'app',
+    resolve: name => import(`./Pages/${name}`),
+    setup({ el, app, props, plugin }) {
+        createApp({ render: () => h(app, props) })
+            .mixin({ methods: { route } })
+            .use(plugin)
+            .mount(el)
+    },
+});
 
 InertiaProgress.init({ color: 'purple' });
-
