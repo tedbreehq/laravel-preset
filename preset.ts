@@ -76,7 +76,6 @@ Preset.group(preset => {
 		.addDev('@babel/plugin-syntax-dynamic-import', "^7.8.3");
 }).withTitle('Installing Inertia JS...');
 
-
 // PHP Packages
 Preset.editPhpPackages()
 	.add('innocenzi/laravel-vite', '^0.1.1')
@@ -99,12 +98,8 @@ Preset.installDependencies('node')
 	.ifOption('install')
 	.withTitle('Updating Node dependencies...');
 
-
-Preset.group(preset => {
-	preset.execute('php artisan', 'inertia:middleware');
-})
-
 Preset.instruct([
+	`Setup Inertia with ${color.magenta('php artisan inertia:middleware')}`,
 	`Run the development server with ${color.magenta('yarn dev')}`,
 	`Edit your scripts in ${color.magenta('resources/scripts')}`,
 ]).withHeading("What's next?");
