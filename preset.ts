@@ -101,7 +101,7 @@ Preset.installDependencies('node')
 
 
 Preset.group(preset => {
-	preset.execute('php artisan inertia:middleware');
+	preset.execute('php', 'artisan inertia:middleware');
 })
 
 Preset.instruct([
