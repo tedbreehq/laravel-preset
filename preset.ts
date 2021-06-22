@@ -101,5 +101,6 @@ Preset.installDependencies('node')
 Preset.instruct([
 	`Setup Inertia with ${color.magenta('php artisan inertia:middleware')}`,
 	`Run the development server with ${color.magenta('yarn dev')}`,
+	`To build assets use ${color.magenta('yarn build')}`,
 	`Edit your scripts in ${color.magenta('resources/scripts')}`,
 ]).withHeading("What's next?");
