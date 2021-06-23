@@ -4,7 +4,8 @@
   "author": "Damilola Ogunmoye",
   "contributors": [
     "Damilola Ogunmoye <dami@tedbree.com>",
-    "Osemeke Samuel <samuel@tedbree.com>"
+    "Osemeke Samuel <samuel@tedbree.com>",
+    "Ibraheem Oluwasegun <segun@tedbree.com>" 
   ],
   "license": "MIT",
   "preset": "preset.ts",

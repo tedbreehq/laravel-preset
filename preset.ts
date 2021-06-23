@@ -60,11 +60,14 @@ Preset.group(preset => {
 	preset.editNodePackages()
 		.addDev("@headlessui/vue", "^1.2.0")
 		.addDev('autoprefixer', '^10')
-		.addDev("postcss", "^8.1.14")
-		.addDev("postcss-import", "^12.0.1")
-		.addDev("tailwindcss", "^2.0.1")
+		.addDev("cssnano", "^5.0.6")
+		.addDev("postcss", "^8.3.5")
+		.addDev("postcss-load-config", "^3.1.0")
+		.addDev("tailwindcss", "^2.2.2")
+		.addDev("@tailwindcss/aspect-ratio", "0.2.1")
 		.addDev("@tailwindcss/forms", "^0.2.1")
 		.addDev("@tailwindcss/typography", "^0.3.0");
+
 }).withTitle('Installing Tailwind...');
 
 // Inertia
@@ -116,7 +119,7 @@ Preset.group(preset => {
 
 
 Preset.instruct([
-	`Setup Inertia with ${color.magenta('php artisan inertia:middleware')}`,
+	`Set Proxy in vite.config.js for dev server`,
 	`Run the development server with ${color.magenta('yarn dev')}`,
 	`To build assets use ${color.magenta('yarn build')}`,
 	`Edit your scripts in ${color.magenta('resources/scripts')}`,

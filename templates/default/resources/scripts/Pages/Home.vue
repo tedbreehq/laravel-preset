@@ -1,5 +1,5 @@
 <template>
-	<h1>{{ welcomeMessage }}</h1>
+	<h1 class="text-green-400 text-xl">{{ welcomeMessage }}</h1>
 </template>
 
 <script lang="ts">
