@@ -58,7 +58,7 @@ Preset.group((preset) => {
 // Tailwind CSS
 Preset.group(preset => {
 	preset.editNodePackages()
-		.add("@headlessui/vue", "^1.2.0")
+		.addDev("@headlessui/vue", "^1.2.0")
 		.addDev('autoprefixer', '^10')
 		.addDev("postcss", "^8.1.14")
 		.addDev("postcss-import", "^12.0.1")
@@ -98,9 +98,29 @@ Preset.installDependencies('node')
 	.ifOption('install')
 	.withTitle('Updating Node dependencies...');
 
+
+Preset.group(preset => {
+
+	preset.edit('routes/web.php')
+	.withoutTitle()
+	.addBefore('Route::', [
+		`Route::get('/', [HomeController::class, 'index']);\n`
+	]);
+
+	preset.edit('routes/web.php')
+	.withoutTitle()
+	.addBefore('use', [
+		`use App\\Http\\Controllers\\HomeController;\n`
+	]);
+});
+
+
 Preset.instruct([
 	`Setup Inertia with ${color.magenta('php artisan inertia:middleware')}`,
 	`Run the development server with ${color.magenta('yarn dev')}`,
 	`To build assets use ${color.magenta('yarn build')}`,
 	`Edit your scripts in ${color.magenta('resources/scripts')}`,
 ]).withHeading("What's next?");
+
+
+
